@@ -18,14 +18,17 @@
         <a class="text-3xl font-bold font-serif text-sky-600">Circle Up</a>
     </div>
     <div class="flex gap-4">
-        <button class="btn btn-ghost btn-circle">
-            🔍
-        </button>
+        <label class="input">
+            <button id="searchBtn" class="btn btn-ghost btn-circle">🔍</button>
+           <input type="search" required placeholder="Search" />
+          </label>
+
+  
         <button class="btn btn-ghost btn-circle">
             ❤️
         </button>
         <!-- Create Post Button -->
-<label for="createPostModal" class="btn btn-ghost btn-circle text-xl">
+<label onclick="submitPost()" for="createPostModal" class="btn btn-ghost btn-circle text-xl">
   ➕
 </label>
 
@@ -98,7 +101,7 @@
 <div class="max-w-6xl mx-auto grid grid-cols-12 gap-6 mt-6 px-4">
 
     <!-- ===== LEFT SIDEBAR ===== -->
-    <div class="hidden md:block col-span-3">
+    <div class="hidden md:block col-span-3 sticky top-20 self-start">
         <div class="bg-base-100 p-4 rounded-xl shadow">
             <div class="flex items-center gap-3">
                 <img class="w-10 rounded-full" src="asset/sifatul.jpeg" />
@@ -134,7 +137,15 @@
             </div>
             <div class="flex justify-between items-center mt-3">
                 <div class="flex gap-3 text-gray-500">
-                    📷 🎥 😊
+                <label class="flex items-center gap-2 cursor-pointer text-gray-500"> 📷
+                <span class="text-sm"></span>
+                 <input type="file" id="imageInput" class="hidden" />
+                </label>
+                 <label class="flex items-center gap-2 cursor-pointer text-gray-500">🎥
+                <span class="text-sm"></span>
+                 <input type="file" id="imageInput" class="hidden" />
+                </label>
+                 😊
                 </div>
                 <button class="btn btn-primary btn-sm rounded-full px-6">
                     Post
@@ -260,7 +271,7 @@
     </div>
 
     <!-- ===== RIGHT SIDEBAR ===== -->
-    <div class="hidden lg:block col-span-3">
+    <div class="hidden lg:block col-span-3 sticky top-20 self-start">
         <div class="bg-base-100 p-4 rounded-xl shadow">
             <h3 class="font-semibold mb-4">Suggestions</h3>
 
@@ -329,6 +340,36 @@
                         Follow
                     </button>
                 </div>
+
+                <div class="flex justify-between items-center">
+                    <div class="flex gap-3 items-center">
+                        <img class="w-8 rounded-full" src="https://i.pravatar.cc/110?u=user10" />
+                        <p class="text-sm">S.M. Siam</p>
+                    </div>
+                    <button class="btn btn-xs btn-outline btn-primary">
+                        Follow
+                    </button>
+                </div>
+
+                <div class="flex justify-between items-center">
+                    <div class="flex gap-3 items-center">
+                        <img class="w-8 rounded-full" src="https://i.pravatar.cc/114?u=user14" />
+                        <p class="text-sm">Rafi</p>
+                    </div>
+                    <button class="btn btn-xs btn-outline btn-primary">
+                        Follow
+                    </button>
+                </div>
+
+                
+                <div class="flex justify-between items-center">
+                    <div class="flex gap-3 items-center">
+                        <img class="w-8 rounded-full" src="https://i.pravatar.cc/117?u=user17" />
+                        <p class="text-sm">Sulaiman</p>
+                    </div>
+                    <button class="btn btn-xs btn-outline btn-primary">
+                        Follow
+                    </button>
                 </div>
             </div>
         </div>
@@ -350,6 +391,75 @@
     });
   }
 </script>
+
+<script>
+async function submitPost() {
+  const text = document.querySelector("textarea").value;
+  const image = document.getElementById("imageInput").files[0];
+
+  const formData = new FormData();
+  formData.append("content", text);
+  if (image) formData.append("image", image);
+
+  await fetch("http://localhost:5000/api/posts", {
+    method: "POST",
+    body: formData
+  });
+
+  location.reload(); // reload feed
+}
+</script>
+
+
+<!-- JS for Search and Follow -->
+<script>
+  const searchBtn = document.getElementById('searchBtn');
+  const searchInput = document.getElementById('searchInput');
+
+  // Toggle search input visibility
+  searchBtn.addEventListener('click', () => {
+    if (searchInput.classList.contains('opacity-0')) {
+      searchInput.classList.remove('opacity-0', 'pointer-events-none');
+      searchInput.focus();
+    } else {
+      searchInput.classList.add('opacity-0', 'pointer-events-none');
+    }
+  });
+
+  // Hide input when clicked outside
+  document.addEventListener('click', (e) => {
+    if (!searchBtn.contains(e.target) && !searchInput.contains(e.target)) {
+      searchInput.classList.add('opacity-0', 'pointer-events-none');
+    }
+  });
+
+  // Filter users while typing
+  searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    const users = document.querySelectorAll('#userList > div');
+
+    users.forEach(user => {
+      const username = user.querySelector('span').textContent.toLowerCase();
+      user.style.display = username.includes(searchTerm) ? 'flex' : 'none';
+    });
+  });
+
+  // Follow button toggle
+  document.querySelectorAll('.follow-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.textContent === 'Follow') {
+        btn.textContent = 'Following';
+        btn.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+        btn.classList.add('bg-gray-400');
+      } else {
+        btn.textContent = 'Follow';
+        btn.classList.remove('bg-gray-400');
+        btn.classList.add('bg-blue-500', 'hover:bg-blue-600');
+      }
+    });
+  });
+</script>
+
 
 
 </body>
