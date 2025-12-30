@@ -20,7 +20,9 @@
       <div class="flex items-center space-x-4">
         <button  class="btn btn-ghost btn-circle"  onclick="location.href='index.html'"> 🏠</button>
         <button class="btn btn-ghost btn-circle">🔍</button>
-        <button class="btn btn-ghost btn-circle">➕</button>
+        <!-- <button class="btn btn-ghost btn-circle">➕</button> -->
+         <label for="createPostModal" class="btn btn-ghost btn-circle text-xl"> ➕ </label>
+
         <button class="btn btn-ghost btn-circle">❤️</button>
         <!-- Profile Button -->
         <button id="profileBtn" class="btn btn-ghost btn-circle avatar">
@@ -30,6 +32,57 @@
         </button>
       </div>
     </div>
+<!-- ================= CREATE POST MODAL ================= -->
+<input type="checkbox" id="createPostModal" class="modal-toggle" />
+
+<div class="modal">
+  <div class="modal-box w-11/12 max-w-lg">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="font-bold text-lg">Create Post</h3>
+      <label for="createPostModal" class="btn btn-sm btn-circle">✕</label>
+    </div>
+
+    <!-- User Info -->
+    <div class="flex items-center gap-3 mb-4">
+      <img class="w-10 rounded-full" src="/asset/sifatul.jpeg" />
+      <div>
+        <p class="font-semibold">Sifatul</p>
+        <p class="text-xs text-gray-500">@circleup</p>
+      </div>
+    </div>
+
+    <!-- Text Input -->
+    <textarea
+      class="textarea textarea-bordered w-full resize-none"
+      rows="4"
+      placeholder="What's happening?"></textarea>
+
+    <!-- Image Upload -->
+    <div class="mt-4">
+      <label class="flex items-center gap-2 cursor-pointer text-gray-500">
+        📷
+        <span class="text-sm">Add Photo</span>
+        <input type="file" id="imageInput" class="hidden" />
+      </label>
+    </div>
+
+    <!-- Preview -->
+    <img id="previewImage" class="rounded-xl mt-4 hidden" />
+
+    <!-- Actions -->
+    <div class="modal-action flex justify-between items-center mt-6">
+      <span class="text-sm text-gray-400">Public</span>
+      <button class="btn btn-primary rounded-full px-6">
+        Post
+      </button>
+    </div>
+
+  </div>
+</div>
+
+    
   </nav>
 
   <!-- Profile Page Content -->
@@ -60,7 +113,7 @@
       </div>
     </div>
 
-    <!-- Posts Grid -->
+    
     <!-- Posts Grid -->
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 mt-6">
   <img src="https://picsum.photos/300/300?random=1" class="w-full h-32 md:h-40 object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer" alt="Post 1">
@@ -89,6 +142,22 @@
     });
   }
 </script>
+
+ <script>
+  const imageInput = document.getElementById('imageInput');
+  const previewImage = document.getElementById('previewImage');
+
+  if (imageInput) {
+    imageInput.addEventListener('change', () => {
+      const file = imageInput.files[0];
+      if (file) {
+        previewImage.src = URL.createObjectURL(file);
+        previewImage.classList.remove('hidden');
+      }
+    });
+  }
+</script>
+
 
 
 </body>
