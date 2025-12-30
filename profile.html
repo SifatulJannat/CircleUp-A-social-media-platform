@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circle Up - Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" />
+
+   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 py-2 flex justify-between items-center">
+      <div class="text-2xl font-bold">Circle Up</div>
+      <div class="flex items-center space-x-4">
+        <button  class="btn btn-ghost btn-circle"  onclick="location.href='home.html'"> 🏠</button>
+        <button class="btn btn-ghost btn-circle">🔍</button>
+        <button class="btn btn-ghost btn-circle">➕</button>
+        <button class="btn btn-ghost btn-circle">❤️</button>
+        <!-- Profile Button -->
+        <button id="profileBtn" class="btn btn-ghost btn-circle avatar">
+          <div class="w-10 rounded-full">
+            <img src="/asset/sifatul.jpeg" alt=" Profile ">
+          </div>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Profile Page Content -->
+  <div class="max-w-4xl mx-auto mt-6">
+
+    <!-- Profile Header -->
+    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+      <!-- Profile Pic -->
+      <div class="avatar">
+        <div class="w-32 h-32 rounded-full border-2 border-gray-300">
+          <img src="/asset/sifatul.jpeg" alt="Profile">
+        </div>
+      </div>
+      <!-- Profile Info -->
+      <div class="flex-1">
+        <div class="flex items-center space-x-4">
+          <h2 class="text-2xl font-semibold">Sifatul</h2>
+          <button class="btn btn-outline btn-sm">Edit Profile</button>
+        </div>
+        <div class="flex mt-2 space-x-6">
+          <div><span class="font-bold">120</span> Posts</div>
+          <div><span class="font-bold">450</span> Followers</div>
+          <div><span class="font-bold">300</span> Following</div>
+        </div>
+        <div class="mt-4">
+          <p class="font-medium">Bio goes here. Something interesting about the user.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Posts Grid -->
+    <!-- Posts Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 mt-6">
+  <img src="https://picsum.photos/300/300?random=1" class="w-full h-32 md:h-40 object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer" alt="Post 1">
+  <img src="https://picsum.photos/300/300?random=2" class="w-full h-32 md:h-40 object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer" alt="Post 2">
+  <img src="https://picsum.photos/300/300?random=3" class="w-full h-32 md:h-40 object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer" alt="Post 3">
+  <img src="https://picsum.photos/300/300?random=4" class="w-full h-32 md:h-40 object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer" alt="Post 4">
+  <img src="https://picsum.photos/300/300?random=5" class="w-full h-32 md:h-40 object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer" alt="Post 5">
+  <img src="https://picsum.photos/300/300?random=6" class="w-full h-32 md:h-40 object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer" alt="Post 6">
+  <img src="https://picsum.photos/300/300?random=7" class="w-full h-32 md:h-40 object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer" alt="Post 7">
+  <img src="https://picsum.photos/300/300?random=8" class="w-full h-32 md:h-40 object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer" alt="Post 8">
+  <img src="https://picsum.photos/300/300?random=9" class="w-full h-32 md:h-40 object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer" alt="Post 9">
+  <img src="https://picsum.photos/300/300?random=10" class="w-full h-32 md:h-40 object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer" alt="Post 10">
+  <img src="https://picsum.photos/300/300?random=11" class="w-full h-32 md:h-40 object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer" alt="Post 11">
+  <img src="https://picsum.photos/300/300?random=12" class="w-full h-32 md:h-40 object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer" alt="Post 12">
+</div>
+
+<script>
+  // Smooth scroll for profile button
+  const profileBtn = document.getElementById('profileBtn');
+  if(profileBtn){
+    profileBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 80,
+        behavior: 'smooth'
+      });
+    });
+  }
+</script>
+
+
+</body>
+</html>

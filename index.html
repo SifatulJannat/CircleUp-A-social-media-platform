@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <title>Circle Up – Home</title>
+    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
+    
+       <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-base-200">
+
+<!-- ================= NAVBAR ================= -->
+<div class="navbar bg-base-100 shadow-md px-6 sticky top-0 z-50">
+    <div class="flex-1">
+        <a class="text-3xl font-bold font-serif text-sky-600">Circle Up</a>
+    </div>
+    <div class="flex gap-4">
+        <button class="btn btn-ghost btn-circle">
+            🔍
+        </button>
+        <button class="btn btn-ghost btn-circle">
+            ❤️
+        </button>
+        <div class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                <div class="w-10 rounded-full">
+                    <img src="asset/sifatul.jpeg" />
+                </div>
+            </label>
+            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-40">
+                <li><a href="/profile.html">Profile</a></li>
+                <li><a>Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- ================= MAIN LAYOUT ================= -->
+<div class="max-w-6xl mx-auto grid grid-cols-12 gap-6 mt-6 px-4">
+
+    <!-- ===== LEFT SIDEBAR ===== -->
+    <div class="hidden md:block col-span-3">
+        <div class="bg-base-100 p-4 rounded-xl shadow">
+            <div class="flex items-center gap-3">
+                <img class="w-10 rounded-full" src="asset/sifatul.jpeg" />
+                <div>
+                    <p class="font-semibold">Sifatul</p>
+                    <p class="text-sm text-gray-500">@circleup</p>
+                </div>
+            </div>
+
+            <div class="mt-6 space-y-3">
+                <a class="flex gap-3 items-center text-sm font-medium">
+                    🏠 Home
+                </a>
+                <a href="profile.html" class="flex gap-3 items-center text-sm">
+                    👤 Profile
+                </a>
+                <a class="flex gap-3 items-center text-sm">
+                    ⚙️ Settings
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FEED ===== -->
+    <div class="col-span-12 md:col-span-6 space-y-6">
+
+        <!-- CREATE POST -->
+        <div class="bg-base-100 p-4 rounded-xl shadow">
+            <div class="flex gap-3">
+                <img class="w-10 rounded-full" src="asset/sifatul.jpeg" />
+                <input type="text" placeholder="What's happening?"
+                       class="input input-bordered w-full rounded-full" />
+            </div>
+            <div class="flex justify-between items-center mt-3">
+                <div class="flex gap-3 text-gray-500">
+                    📷 🎥 😊
+                </div>
+                <button class="btn btn-primary btn-sm rounded-full px-6">
+                    Post
+                </button>
+            </div>
+        </div>
+
+        <!-- POST CARD -->
+        <div class="bg-base-100 rounded-xl shadow p-4 space-y-3">
+            <div class="flex items-center gap-3">
+                <img class="w-10 rounded-full" src="https://i.pravatar.cc/101?u=user1" />
+                <div>
+                    <p class="font-semibold">Alex</p>
+                    <p class="text-xs text-gray-500">2 hours ago</p>
+                </div>
+            </div>
+
+            <p class="text-sm">
+                Building my first social media app  🚀
+            </p>
+
+            <img class="rounded-xl mt-2"
+                 src="https://picsum.photos/600/350" />
+
+            <div class="flex justify-between text-sm text-gray-500 pt-2">
+                <button class="flex gap-1 hover:text-primary">
+                    ❤️ Like
+                </button>
+                <button class="flex gap-1 hover:text-primary">
+                    💬 Comment
+                </button>
+                <button class="flex gap-1 hover:text-primary">
+                    🔄 Share
+                </button>
+            </div>
+        </div>
+
+        <!-- POST CARD 2 -->
+        <div class="bg-base-100 rounded-xl shadow p-4 space-y-3">
+            <div class="flex items-center gap-3">
+                <img class="w-10 rounded-full" src="https://i.pravatar.cc/102?u=user2" />
+                <div>
+                    <p class="font-semibold">Maria</p>
+                    <p class="text-xs text-gray-500">5 hours ago</p>
+                </div>
+            </div>
+
+            <p class="text-sm">
+                Circle Up UI looks clean already 😍
+            </p>
+
+            <div class="flex justify-between text-sm text-gray-500 pt-2">
+                <button class="flex gap-1 hover:text-primary">❤️ Like</button>
+                <button class="flex gap-1 hover:text-primary">💬 Comment</button>
+                <button class="flex gap-1 hover:text-primary">🔄 Share</button>
+            </div>
+        </div>
+        
+    <!-- Post Card 3-->
+    <div class="card bg-base-100 shadow">
+      <!-- Post Header -->
+      <div class="flex items-center gap-3 p-4">
+        <div class="avatar">
+          <div class="w-10 rounded-full">
+            <img src="https://i.pravatar.cc/100?u=rifat" />
+          </div>
+        </div>
+        <div>
+          <p class="font-semibold">Rifat Hasan</p>
+          <p class="text-sm text-gray-500">2 hours ago</p>
+        </div>
+      </div>
+
+      <!-- Post Image -->
+      <figure>
+        <img
+          src="https://picsum.photos/600/400"
+          alt="post"
+          class="w-full"
+        />
+      </figure>
+
+      <!-- Post Actions -->
+      <div class="p-4 space-y-2">
+        <div class="flex gap-4">
+          <button class="btn btn-ghost btn-sm">❤️ Like</button>
+          <button class="btn btn-ghost btn-sm">💬 Comment</button>
+          <button class="btn btn-ghost btn-sm">🔗 Share</button>
+        </div>
+
+        <p>
+          <span class="font-semibold">Rifat Hasan</span>
+          Enjoying a beautiful day 🌤️
+        </p>
+      </div>
+    </div>
+
+    <!--  Post card 4 -->
+    <div class="card bg-base-100 shadow">
+      <div class="flex items-center gap-3 p-4">
+        <div class="avatar">
+          <div class="w-10 rounded-full">
+            <img src="https://i.pravatar.cc/100?u=sara" />
+          </div>
+        </div>
+        <div>
+          <p class="font-semibold">Sara Khan</p>
+          <p class="text-sm text-gray-500">5 hours ago</p>
+        </div>
+      </div>
+
+      <div class="p-4">
+        <p>Learning web development 🚀 Tailwind is awesome!</p>
+      </div>
+
+      <div class="p-4 pt-0 flex gap-4">
+        <button class="btn btn-ghost btn-sm">❤️ Like</button>
+        <button class="btn btn-ghost btn-sm">💬 Comment</button>
+        <button class="btn btn-ghost btn-sm">🔗 Share</button>
+      </div>
+    </div>
+
+    </div>
+
+    <!-- ===== RIGHT SIDEBAR ===== -->
+    <div class="hidden lg:block col-span-3">
+        <div class="bg-base-100 p-4 rounded-xl shadow">
+            <h3 class="font-semibold mb-4">Suggestions</h3>
+
+            <div class="space-y-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex gap-3 items-center">
+                        <img class="w-8 rounded-full" src="https://i.pravatar.cc/103?u=user3" />
+                        <p class="text-sm">Niha</p>
+                    </div>
+                    <button class="btn btn-xs btn-outline btn-primary">
+                        Follow
+                    </button>
+                </div>
+
+                <div class="flex justify-between items-center">
+                    <div class="flex gap-3 items-center">
+                        <img class="w-8 rounded-full" src="https://i.pravatar.cc/104?u=user4" />
+                        <p class="text-sm">Emma</p>
+                    </div>
+                    <button class="btn btn-xs btn-outline btn-primary">
+                        Follow
+                    </button>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex gap-3 items-center">
+                        <img class="w-8 rounded-full" src="https://i.pravatar.cc/105?u=user5" />
+                        <p class="text-sm">Tamim</p>
+                    </div>
+                    <button class="btn btn-xs btn-outline btn-primary">
+                        Follow
+                    </button>
+                </div>
+                    <div class="flex justify-between items-center">
+                    <div class="flex gap-3 items-center">
+                        <img class="w-8 rounded-full" src="https://i.pravatar.cc/106?u=user6" />
+                        <p class="text-sm">Maria</p>
+                    </div>
+                    <button class="btn btn-xs btn-outline btn-primary">
+                        Follow
+                    </button>  
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex gap-3 items-center">
+                        <img class="w-8 rounded-full" src="https://i.pravatar.cc/107?u=user7" />
+                        <p class="text-sm">Arnika</p>
+                    </div>
+                    <button class="btn btn-xs btn-outline btn-primary">
+                        Follow
+                    </button>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex gap-3 items-center">
+                        <img class="w-8 rounded-full" src="https://i.pravatar.cc/108?u=user8" />
+                        <p class="text-sm">Hrittick</p>
+                    </div>
+                    <button class="btn btn-xs btn-outline btn-primary">
+                        Follow
+                    </button>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex gap-3 items-center">
+                        <img class="w-8 rounded-full" src="https://i.pravatar.cc/109?u=user9" />
+                        <p class="text-sm">Samanta</p>
+                    </div>
+                    <button class="btn btn-xs btn-outline btn-primary">
+                        Follow
+                    </button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
