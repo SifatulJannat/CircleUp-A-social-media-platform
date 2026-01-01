@@ -80,10 +80,96 @@
     </div>
 
   </div>
+</div>    
+  </nav>
+
+ 
+
+<!-- ================= FOLLOW MODAL ================= -->
+<input type="checkbox" id="followModal" class="modal-toggle" />
+
+<div class="modal fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+
+  <div class="bg-base-100 w-[95%] max-w-3xl rounded-2xl shadow-xl">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center px-6 py-4 border-b">
+      <h3 class="font-bold text-xl">Connections</h3>
+      <label for="followModal" class="btn btn-sm btn-circle btn-ghost">✕</label>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex justify-center gap-10 border-b py-3 text-base font-medium">
+      <button id="followersTab"
+              onclick="showFollowers()"
+              class="border-b-2 border-primary pb-1">
+        Followers
+      </button>
+      <button id="followingTab"
+              onclick="showFollowing()"
+              class="text-gray-400">
+        Following
+      </button>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="max-h-[65vh] overflow-y-auto px-6 py-4 space-y-5">
+
+      <!-- FOLLOWERS -->
+      <div id="followersList">
+
+        <div class="flex justify-between items-center mb-4">
+          <div class="flex items-center gap-4">
+            <img src="https://i.pravatar.cc/100?u=f1" class="w-12 h-12 rounded-full">
+            <div>
+              <p class="font-semibold">Alex</p>
+              <p class="text-sm text-gray-500">@alex</p>
+            </div>
+          </div>
+          <button class="btn btn-sm btn-outline btn-primary rounded-full px-6">
+            Follow
+          </button>
+        </div>
+
+        <div class="flex justify-between items-center">
+          <div class="flex items-center gap-4">
+            <img src="https://i.pravatar.cc/100?u=f2" class="w-12 h-12 rounded-full">
+            <div>
+              <p class="font-semibold">Maria</p>
+              <p class="text-sm text-gray-500">@maria</p>
+            </div>
+          </div>
+          <button class="btn btn-sm rounded-full px-6">
+            Following
+          </button>
+        </div>
+
+      </div>
+
+      <!-- FOLLOWING -->
+      <div id="followingList" class="hidden">
+
+        <div class="flex justify-between items-center mb-4">
+          <div class="flex items-center gap-4">
+            <img src="https://i.pravatar.cc/100?u=f3" class="w-12 h-12 rounded-full">
+            <div>
+              <p class="font-semibold">Rifat</p>
+              <p class="text-sm text-gray-500">@rifat</p>
+            </div>
+          </div>
+          <button class="btn btn-sm rounded-full px-6">
+            Following
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 </div>
 
-    
-  </nav>
+
 
   <!-- Profile Page Content -->
   <div class="max-w-4xl mx-auto mt-6">
@@ -102,11 +188,23 @@
           <h2 class="text-2xl font-semibold">Sifatul</h2>
           <button class="btn btn-outline btn-sm">Edit Profile</button>
         </div>
-        <div class="flex mt-2 space-x-6">
+        <!-- <div class="flex mt-2 space-x-6">
           <div><span class="font-bold">120</span> Posts</div>
           <div><span class="font-bold">450</span> Followers</div>
           <div><span class="font-bold">300</span> Following</div>
-        </div>
+        </div> -->
+        <div class="flex mt-2 space-x-6 text-sm">
+   <div><span class="font-bold">120</span> Posts</div>
+  <label for="followModal" class="cursor-pointer hover:underline">
+    <span class="font-bold">450</span> Followers
+  </label>
+
+  <label for="followModal" onclick="openFollowing()" class="cursor-pointer hover:underline">
+    <span class="font-bold">300</span> Following
+  </label>
+
+</div>
+
         <div class="mt-4">
           <p class="font-medium">Bio goes here. Something interesting about the user.</p>
         </div>
@@ -158,6 +256,51 @@
   }
 </script>
 
+<!-- <script>
+function showFollowers() {
+  document.getElementById("followersList").classList.remove("hidden");
+  document.getElementById("followingList").classList.add("hidden");
+
+  document.getElementById("followersTab").classList.add("tab-active");
+  document.getElementById("followingTab").classList.remove("tab-active");
+}
+
+function showFollowing() {
+  document.getElementById("followersList").classList.add("hidden");
+  document.getElementById("followingList").classList.remove("hidden");
+
+  document.getElementById("followersTab").classList.remove("tab-active");
+  document.getElementById("followingTab").classList.add("tab-active");
+}
+
+function openFollowing() {
+  setTimeout(showFollowing, 50);
+}
+</script> -->
+
+<script>
+function showFollowers() {
+  followersList.classList.remove("hidden");
+  followingList.classList.add("hidden");
+
+  followersTab.classList.remove("text-gray-400");
+  followersTab.classList.add("border-primary");
+
+  followingTab.classList.add("text-gray-400");
+  followingTab.classList.remove("border-primary");
+}
+
+function showFollowing() {
+  followersList.classList.add("hidden");
+  followingList.classList.remove("hidden");
+
+  followingTab.classList.remove("text-gray-400");
+  followingTab.classList.add("border-primary");
+
+  followersTab.classList.add("text-gray-400");
+  followersTab.classList.remove("border-primary");
+}
+</script>
 
 
 </body>
